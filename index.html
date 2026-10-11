@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Pairly — the keyboard-first memory game</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Geist+Mono:wght@500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="orb" style="width:520px;height:520px;background:#ffc9a8aa;top:-140px;right:-120px" data-p="30"></div>
+<div class="orb" style="width:420px;height:420px;background:#ffe2c4aa;top:360px;left:-160px" data-p="-20"></div>
+<a class="sr-only" href="#board">Skip to the game</a>
+<header><div class="wrap">
+  <a class="logo" href="#top" aria-label="Pairly home"><b><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="11" height="14" rx="2.5"/><path d="M17 8.5l3.5 1-2.500 9-3-.8"/></svg></b>Pairly</a>
+  <nav aria-label="Primary"><a href="#play">Play</a><a href="#features">Features</a><a href="#keys">Keys</a>
+    <button class="btn sec" id="openKeys" type="button"><span><svg class="i" viewBox="0 0 24 24"><rect x="2.500" y="6" width="19" height="12" rx="3"/><path d="M6.500 10h.01M10 10h.01M13.500 10h.01M17 10h.01M7 14h10"/></svg>Shortcuts <span class="kc">?</span></span></button></nav>
+</div></header>
+
+<main id="top">
+<div class="hero" id="play"><div class="wrap grid2">
+  <div>
+    <span class="pill rv"><i>New</i> Keyboard-first memory game</span>
+    <h1 aria-label="Flip. Match. Flow."><span class="w"><span>Flip.</span></span> <span class="w"><span>Match.</span></span> <span class="w"><em><span>Flow.</span></em></span></h1>
+    <p class="lead rv">A memory game that rewards fast hands. Glide across the board with the arrow keys, flip with space, and never touch the mouse.</p>
+    <div class="cta rv">
+      <button class="btn lg" id="cta" type="button"><span><svg class="i" viewBox="0 0 24 24"><path d="M7 4.500v15l12-7.500z"/></svg>Play now</span></button>
+      <button class="btn sec lg" id="openKeys2" type="button"><span>See shortcuts <span class="kc">?</span></span></button>
+    </div>
+  </div>
+  <div class="game rv" aria-label="Memory game">
+    <div class="bar">
+      <div><span class="sr-only" id="ddl">Board size</span>
+        <div class="dd"><button class="ddb" id="ddb" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="ddl ddv"><span id="ddv"></span><svg class="i" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="ddl" id="ddlist" role="listbox" tabindex="-1" aria-labelledby="ddl" hidden></ul></div></div>
+      <div class="stats" role="group" aria-label="Game stats">
+        <div class="st"><small>Moves</small><b id="mv">0</b></div><div class="st"><small>Time</small><b id="tm">0:00</b></div><div class="st"><small>Best</small><b id="bs">—</b></div>
+      </div>
+      <button class="btn sec" id="rs" type="button" aria-label="Restart game"><span><svg class="i" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.500-5.800M4 4v4.500h4.500"/></svg><span class="kc">R</span></span></button>
+    </div>
+    <div class="board" id="board" role="group" aria-label="Memory board"></div>
+    <div class="opts">
+      <fieldset class="grp"><legend>Deck</legend>
+        <label class="c"><input class="r" type="radio" name="deck" value="mint" checked>Mint</label>
+        <label class="c"><input class="r" type="radio" name="deck" value="ink">Ink</label></fieldset>
+      <label class="c"><input class="k" type="checkbox" id="peek">Peek at start</label>
+      <label class="c"><input class="s" type="checkbox" role="switch" id="snd">Sound <span class="kc">M</span></label>
+    </div>
+    <div class="sr-only" id="live" aria-live="polite"></div>
+  </div>
+</div></div>
+
+<section id="features"><div class="wrap">
+  <p class="eyebrow">Why Pairly</p><h2>Small game. Obsessive details.</h2>
+  <div class="cards3">
+    <article class="fc"><div class="ic"><svg class="i" viewBox="0 0 24 24"><rect x="2.500" y="6" width="19" height="12" rx="3"/><path d="M7 14h10M7 10h.01M11 10h.01M15 10h.01"/></svg></div><h3>Keyboard first</h3><p>Arrow keys or WASD move a cursor. Space flips. Every action has a visible keycap.</p></article>
+    <article class="fc"><div class="ic"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Tracks your best</h3><p>Moves and time are saved per board size, right in your browser. No account.</p></article>
+    <article class="fc"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M12 3l2.500 5.500 6 .8-4.400 4.100 1.100 6L12 16.500 6.800 19.400l1.100-6L3.500 9.300l6-.8z"/></svg></div><h3>Accessible by design</h3><p>Focus rings, live announcements, real form controls, and reduced motion support.</p></article>
+  </div>
+</div></section>
+
+<section id="keys"><div class="wrap">
+  <p class="eyebrow">Shortcuts</p><h2>Learn five keys. Play forever.</h2>
+  <div class="keys">
+    <div class="krow"><span>Move cursor</span><span><span class="kc">←</span><span class="kc">↑</span><span class="kc">↓</span><span class="kc">→</span></span></div>
+    <div class="krow"><span>Flip card</span><span><span class="kc">Space</span></span></div>
+    <div class="krow"><span>Restart</span><span><span class="kc">R</span></span></div>
+    <div class="krow"><span>Toggle sound</span><span><span class="kc">M</span></span></div>
+    <div class="krow"><span>Shortcuts</span><span><span class="kc">?</span></span></div>
+  </div>
+</div></section>
+</main>
+<footer><div class="wrap"><span>© Pairly. Built with HTML, CSS, JS and GSAP.</span><span>Play with your keyboard.</span></div></footer>
+
+<div class="ov" id="winDlg" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="wt">
+  <div class="trophy"><svg class="i" viewBox="0 0 24 24"><path d="M7 4h10v5a5 5 0 0 1-10 0zM7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3M12 14v4M8 20h8"/></svg></div>
+  <h2 id="wt">All paired!</h2><p id="wm">Nicely done.</p>
+  <div class="big"><div><small>Moves</small><b id="wmv"></b></div><div><small>Time</small><b id="wtm"></b></div><div><small>Best</small><b id="wbs"></b></div></div>
+  <div class="row"><button class="btn sec" id="wsize" type="button"><span>Change size</span></button><button class="btn" id="wagain" type="button" data-first><span>Play again <span class="kc">R</span></span></button></div>
+</div></div>
+<div class="ov" id="keysDlg" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="kt">
+  <h2 id="kt">Shortcuts</h2><p>Everything in Pairly works from the keyboard.</p>
+  <div style="display:grid;gap:8px">
+    <div class="krow"><span>Move cursor</span><span><span class="kc">←</span><span class="kc">↑</span><span class="kc">↓</span><span class="kc">→</span></span></div>
+    <div class="krow"><span>Or use WASD</span><span><span class="kc">W</span><span class="kc">A</span><span class="kc">S</span><span class="kc">D</span></span></div>
+    <div class="krow"><span>Flip card</span><span><span class="kc">Space</span><span class="kc">Enter</span></span></div>
+    <div class="krow"><span>Restart</span><span><span class="kc">R</span></span></div>
+    <div class="krow"><span>Sound on or off</span><span><span class="kc">M</span></span></div>
+    <div class="krow"><span>Close dialog</span><span><span class="kc">Esc</span></span></div>
+  </div>
+  <div class="row"><button class="btn" id="kclose" type="button" data-first><span>Got it</span></button></div>
+</div></div>
+<div id="toast" role="status"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
